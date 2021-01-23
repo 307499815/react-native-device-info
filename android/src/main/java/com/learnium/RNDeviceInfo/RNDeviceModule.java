@@ -28,7 +28,6 @@ import android.app.ActivityManager;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraManager;
 
-import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -56,7 +55,6 @@ import java.math.BigInteger;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
 
 import static android.os.BatteryManager.BATTERY_STATUS_CHARGING;
 import static android.os.BatteryManager.BATTERY_STATUS_FULL;
@@ -156,7 +154,6 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
 
 
   @Override
-  @Nonnull
   public String getName() {
     return NAME;
   }
@@ -918,7 +915,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
 
   private void sendEvent(ReactContext reactContext,
                          String eventName,
-                         @Nullable Object data) {
+                         Object data) {
     reactContext
             .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
             .emit(eventName, data);
