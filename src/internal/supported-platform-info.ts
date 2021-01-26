@@ -12,6 +12,13 @@ type MemoType = { [key: string]: any };
 // centralized memo object
 const memo: MemoType = {};
 
+Object.fromEntries = Object.fromEntries || function(arr) {
+    return arr.reduce(function(acc, curr) {
+        acc[curr[0]] = curr[1];
+        return acc;
+    }, {});
+};
+
 /**
  * function returns the proper getter based current platform X supported platforms
  * @param supportedPlatforms array of supported platforms (OS)
