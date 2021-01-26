@@ -13,7 +13,7 @@ type MemoType = { [key: string]: any };
 const memo: MemoType = {};
 
 const fromEntries = function(arr: any[]) {
-    return arr.reduce(function(acc: {[key:any]:any} , curr: any[]) {
+    return arr.reduce(function(acc, curr: any[]) {
         acc[curr[0]] = curr[1];
         return acc;
     }, {});
