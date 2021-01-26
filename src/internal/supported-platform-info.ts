@@ -12,8 +12,8 @@ type MemoType = { [key: string]: any };
 // centralized memo object
 const memo: MemoType = {};
 
-const fromEntries = function(arr) {
-    return arr.reduce(function(acc, curr) {
+const fromEntries = function(arr: any[]) {
+    return arr.reduce(function(acc: {[key:any]:any} , curr: any[]) {
         acc[curr[0]] = curr[1];
         return acc;
     }, {});
