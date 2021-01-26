@@ -12,7 +12,7 @@ type MemoType = { [key: string]: any };
 // centralized memo object
 const memo: MemoType = {};
 
-Object.fromEntries = Object.fromEntries || function(arr) {
+const fromEntries = function(arr) {
     return arr.reduce(function(acc, curr) {
         acc[curr[0]] = curr[1];
         return acc;
@@ -33,7 +33,7 @@ function getSupportedFunction<T>(
   const entries = supportedPlatforms
     .filter((key) => Platform.OS == key)
     .map((key) => [key, getter]);
-  const supportedMap = Object.fromEntries(entries);
+  const supportedMap = fromEntries(entries);
   return Platform.select({
     ...supportedMap,
     default: defaultGetter,
